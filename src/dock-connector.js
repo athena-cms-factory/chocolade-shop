@@ -104,13 +104,25 @@
             const baseUrl = import.meta.env.BASE_URL || '/';
 
             elements.forEach(el => {
-                if (el.tagName === 'IMG') {
+                const isMedia = el.tagName === 'IMG' || el.tagName === 'VIDEO' || el.hasAttribute('data-dock-current');
+                
+                if (isMedia) {
                     const src = (value && !value.startsWith('http') && !value.startsWith('/') && !value.startsWith('data:'))
                         ? `${baseUrl}images/${value}`.replace(/\/+/g, '/')
-                        : value;
-                    el.src = src;
+                        : (value || "");
+                    
+                    // Update <img> or <video> (either the element itself or a child)
+                    const mediaEl = (el.tagName === 'IMG' || el.tagName === 'VIDEO') ? el : el.querySelector('img, video');
+                    if (mediaEl) {
+                        mediaEl.src = src;
+                    }
+                    
+                    // Also update the current value attribute if present
+                    if (el.hasAttribute('data-dock-current')) {
+                        el.setAttribute('data-dock-current', value || "");
+                    }
                 } else {
-                    el.innerText = value;
+                    el.innerText = value || "";
                 }
             });
         }
@@ -189,10 +201,28 @@
         if (target && window.parent !== window) {
             e.preventDefault();
             e.stopPropagation();
+
+            // Extract current value smartly
+            let currentValue = target.getAttribute('data-dock-current') || target.innerText;
+            
+            // Fallback for direct <img> or container with <img>
+            if (!currentValue) {
+                const img = target.tagName === 'IMG' ? target : target.querySelector('img');
+                if (img) {
+                    // Try to get the relative filename from the absolute src
+                    const src = img.getAttribute('src');
+                    if (src && src.includes('/images/')) {
+                        currentValue = src.split('/images/').pop().split('?')[0];
+                    } else {
+                        currentValue = src;
+                    }
+                }
+            }
+
             window.parent.postMessage({
                 type: 'SITE_CLICK',
                 binding: JSON.parse(target.getAttribute('data-dock-bind')),
-                currentValue: target.innerText || target.src,
+                currentValue: currentValue || "",
                 tagName: target.tagName
             }, '*');
         }

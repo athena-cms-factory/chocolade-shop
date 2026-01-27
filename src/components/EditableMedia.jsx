@@ -47,6 +47,7 @@ export default function EditableMedia({ src: rawSrc, alt, className, cmsBind, da
     <div 
       className={`relative group overflow-hidden cursor-pointer ${className}`}
       data-dock-bind={JSON.stringify(cmsBind)}
+      data-dock-current={rawSrc || ""}
       {...props}
     >
       {renderContent()}

@@ -5,8 +5,8 @@
     "categorie_id": "Geschenkdozen",
     "prijs": "18.50",
     "korte_beschrijving": "Een verfijnde selectie van onze beste handgemaakte pralines.",
-    "uitgebreide_beschrijving": "Deze luxe doos bevat een zorgvuldig samengesteld assortiment van melk, pure en witte chocolade pralines, gevuld met ganache, praliné en fruitige vullingen.",
-    "product_foto_url": "assortiment-box.jpg"
+    "uitgebreide_beschrijving": "Deze luxe doos bevat een zorgvuldig samengesteld assortiment van melk, pure en witte chocolade pralines.",
+    "product_foto_url": "luxe-assortiment-1769528960442.jpeg"
   },
   {
     "product_id": 2,
@@ -14,7 +14,7 @@
     "categorie_id": "Tabletten",
     "prijs": "6.95",
     "korte_beschrijving": "Donkere chocolade (72%) met een vleugje Fleur de Sel.",
-    "uitgebreide_beschrijving": "Onze iconische pure chocolade uit Ecuador, verfijnd met handgeplukt zeezout voor de perfecte balans tussen zoet en zout.",
+    "uitgebreide_beschrijving": "Onze iconische pure chocolade uit Ecuador, verfijnd met handgeplukt zeezout.",
     "product_foto_url": "pure-zeezout.jpg"
   },
   {
@@ -23,7 +23,7 @@
     "categorie_id": "Truffels",
     "prijs": "14.00",
     "korte_beschrijving": "Fluweelzachte truffels met een vleugje eetbaar goud.",
-    "uitgebreide_beschrijving": "Zachte vulling van pure chocolade, omhuld met een dun laagje cacao en gedecoreerd met 24-karaats bladgoud.",
+    "uitgebreide_beschrijving": "Zachte vulling van pure chocolade, omhuld met een dun laagje cacao en 24-karaats bladgoud.",
     "product_foto_url": "gouden-truffels.jpg"
   },
   {
@@ -32,7 +32,7 @@
     "categorie_id": "Specialiteiten",
     "prijs": "12.50",
     "korte_beschrijving": "Een Gentse klassieker in een jasje van Belgische chocolade.",
-    "uitgebreide_beschrijving": "De bekende Gentse cuberdon vulling, omhuld door een krokant laagje pure chocolade. Een unieke Gentse ervaring.",
-    "product_foto_url": "gentse-neuzen.jpg"
+    "uitgebreide_beschrijving": "De bekende Gentse cuberdon vulling, omhuld door een krokant laagje pure chocolade.",
+    "product_foto_url": "vullen-1769528937737.jpeg"
   }
 ]
