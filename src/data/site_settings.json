@@ -4,5 +4,9 @@
   "dark_heading_color": "#cd8e8e",
   "dark_text_color": "#497097",
   "title": "Belgian Chocolate",
-  "dark_title_color": "#e0cdcd"
+  "dark_title_color": "#e0cdcd",
+  "light_header_color": "#e35f5f",
+  "light_button_color": "#f73bbb",
+  "light_card_color": "#c9a1a1",
+  "global_shadow": "strong"
 }

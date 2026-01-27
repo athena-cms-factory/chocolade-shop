@@ -24,7 +24,9 @@
             'light_card_color': ['--color-card-bg', '--card-bg', '--surface'],
             'light_header_color': ['--color-header-bg', '--nav-bg'],
             'light_bg_color': ['--color-background', '--bg-site'],
-            'light_text_color': ['--color-text']
+            'light_text_color': ['--color-text'],
+            'global_radius': ['--radius-custom', '--radius-main'], // GLOBALE VARS
+            'global_shadow': ['--shadow-main']                    // GLOBALE VARS
         },
         dark: {
             'dark_primary_color': ['--color-primary'],
@@ -35,7 +37,9 @@
             'dark_card_color': ['--color-card-bg', '--card-bg', '--surface'],
             'dark_header_color': ['--color-header-bg', '--nav-bg'],
             'dark_bg_color': ['--color-background', '--bg-site'],
-            'dark_text_color': ['--color-text']
+            'dark_text_color': ['--color-text'],
+            'global_radius': ['--radius-custom', '--radius-main'],
+            'global_shadow': ['--shadow-main']
         }
     };
 
