@@ -44,8 +44,11 @@
     --color-button-bg: #3b82f6;
     --color-card-bg: #ffffff;
     --color-header-bg: #ffffff;
+    --color-surface: #ffffff;
     --color-background: #ffffff;
     --color-text: #1e293b;
+    --radius-custom: 1rem;
+    --shadow-main: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
   }
 
   /* Dark mode overrides via class (Dock controlled) */
@@ -58,8 +61,10 @@
     --color-button-bg: #60a5fa;
     --color-card-bg: #1e293b;
     --color-header-bg: #0f172a;
+    --color-surface: #1e293b;
     --color-background: #0f172a;
     --color-text: #f8fafc;
+    --shadow-main: 0 10px 40px rgba(0,0,0,0.3);
   }
 
   body {
@@ -96,9 +101,9 @@
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 text-white rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg;
+    @apply px-6 py-3 text-white rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-xl;
     background-color: var(--color-button-bg);
-    box-shadow: 0 10px 15px -3px rgba(var(--color-button-bg), 0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   }
   
   .card {

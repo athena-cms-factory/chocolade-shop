@@ -5,7 +5,7 @@ export default function Footer({ primaryTable }) {
   const info = primaryTable?.[0] || {};
   
   // Zoek velden met verschillende mogelijke aliassen
-  const naam = info.bedrijfsnaam || info.naam_bedrijf || info['config_id'] || info.naam || info.titel || 'chocolade-shop';
+  const naam = info.site_naam || info.bedrijfsnaam || info.naam_bedrijf || info.naam || info.titel || 'Athena Shop';
   const adres = info.adres || info.address || info.locatie || '';
   const telefoon = info.telefoonnummer || info.telefoon || info.phone || '';
   const email = info.email_algemeen || info.email_publiek || info.email || '';

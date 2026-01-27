@@ -21,7 +21,7 @@
             'light_heading_color': ['--color-heading'],
             'light_accent_color': ['--color-accent'],
             'light_button_color': ['--color-button-bg', '--btn-bg'],
-            'light_card_color': ['--color-card-bg', '--card-bg', '--surface'],
+            'light_card_color': ['--color-card-bg', '--card-bg', '--surface', '--color-surface'],
             'light_header_color': ['--color-header-bg', '--nav-bg'],
             'light_bg_color': ['--color-background', '--bg-site'],
             'light_text_color': ['--color-text'],
@@ -34,7 +34,7 @@
             'dark_heading_color': ['--color-heading'],
             'dark_accent_color': ['--color-accent'],
             'dark_button_color': ['--color-button-bg', '--btn-bg'],
-            'dark_card_color': ['--color-card-bg', '--card-bg', '--surface'],
+            'dark_card_color': ['--color-card-bg', '--card-bg', '--surface', '--color-surface'],
             'dark_header_color': ['--color-header-bg', '--nav-bg'],
             'dark_bg_color': ['--color-background', '--bg-site'],
             'dark_text_color': ['--color-text'],
@@ -91,11 +91,21 @@
                 return;
             }
 
+            // Global settings mapping
+            let finalValue = value;
+            if (key === 'global_shadow') {
+                if (value === 'soft') finalValue = '0 4px 20px -2px rgba(0, 0, 0, 0.05)';
+                else if (value === 'strong') finalValue = '0 20px 50px -5px rgba(0, 0, 0, 0.15)';
+                else if (value === 'none') finalValue = 'none';
+            }
+
             const targetTheme = key.startsWith('dark') ? 'dark' : 'light';
-            if (targetTheme === currentTheme) {
+            const isGlobal = key.startsWith('global_');
+
+            if (isGlobal || targetTheme === currentTheme) {
                 const vars = themeMappings[currentTheme][key];
                 if (vars) {
-                    vars.forEach(v => document.documentElement.style.setProperty(v, value));
+                    vars.forEach(v => document.documentElement.style.setProperty(v, finalValue));
                 }
             }
         }

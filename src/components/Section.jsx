@@ -70,8 +70,12 @@ const Section = ({ data }) => {
                   {items.map((item, index) => {
                     const priceValue = parseFloat(String(item.prijs).replace(',', '.'));
                     return (
-                      <article key={index} className="w-full md:w-[calc(45%)] lg:w-[calc(30%)] min-w-[300px] flex flex-col h-full bg-surface p-8 rounded-[3rem] shadow-xl border border-slate-100 dark:border-white/5 group hover:scale-[1.02] transition-all duration-500">
-                        <div className="relative aspect-square rounded-[2.5rem] overflow-hidden mb-8 shadow-inner">
+                      <article 
+                        key={index} 
+                        className="w-full md:w-[calc(45%)] lg:w-[calc(30%)] min-w-[300px] flex flex-col h-full card group transition-all duration-500"
+                        style={{ borderRadius: 'var(--radius-custom)', boxShadow: 'var(--shadow-main)' }}
+                      >
+                        <div className="relative aspect-square overflow-hidden mb-8 shadow-inner" style={{ borderRadius: 'calc(var(--radius-custom) * 0.8)' }}>
                           <EditableMedia 
                             src={item.product_foto_url} 
                             cmsBind={{file: 'producten', index, key: 'product_foto_url'}}
@@ -91,7 +95,7 @@ const Section = ({ data }) => {
                         </div>
                         <button 
                           onClick={() => addToCart({ id: item.product_id || index, title: item.naam, price: priceValue, image: item.product_foto_url })}
-                          className="w-full py-5 bg-accent text-white rounded-2xl font-bold hover:shadow-accent/30 shadow-xl transition-all flex items-center justify-center gap-3"
+                          className="btn-primary w-full py-5 flex items-center justify-center gap-3"
                         >
                           <i className="fa-solid fa-cart-shopping"></i> In winkelwagen
                         </button>
