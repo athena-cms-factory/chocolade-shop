@@ -20,6 +20,9 @@
             'light_title_color': ['--color-title'],
             'light_heading_color': ['--color-heading'],
             'light_accent_color': ['--color-accent'],
+            'light_button_color': ['--color-button-bg', '--btn-bg'],
+            'light_card_color': ['--color-card-bg', '--card-bg', '--surface'],
+            'light_header_color': ['--color-header-bg', '--nav-bg'],
             'light_bg_color': ['--color-background', '--bg-site'],
             'light_text_color': ['--color-text']
         },
@@ -28,6 +31,9 @@
             'dark_title_color': ['--color-title'],
             'dark_heading_color': ['--color-heading'],
             'dark_accent_color': ['--color-accent'],
+            'dark_button_color': ['--color-button-bg', '--btn-bg'],
+            'dark_card_color': ['--color-card-bg', '--card-bg', '--surface'],
+            'dark_header_color': ['--color-header-bg', '--nav-bg'],
             'dark_bg_color': ['--color-background', '--bg-site'],
             'dark_text_color': ['--color-text']
         }
