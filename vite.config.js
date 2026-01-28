@@ -17,7 +17,7 @@ if (fs.existsSync(pluginPath)) {
 }
 
 export default defineConfig({
-  base: '/chocolade-shop/', 
+  base: process.env.NODE_ENV === 'production' ? '/chocolade-shop/' : '/', 
   plugins: [
     react(),
     tailwindcss(),
