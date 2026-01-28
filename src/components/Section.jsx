@@ -66,16 +66,16 @@ const Section = ({ data }) => {
                 <h2 className="text-5xl font-serif font-bold mb-4 text-[var(--color-heading)]">Onze Collectie</h2>
                 <p className="text-xl italic opacity-60 mb-20">Handgemaakte meesterwerken</p>
                 
-                <div className="flex flex-wrap justify-center gap-12">
+                <div className="flex flex-wrap justify-center items-stretch gap-12">
                   {items.map((item, index) => {
                     const priceValue = parseFloat(String(item.prijs).replace(',', '.'));
                     return (
                       <article 
                         key={index} 
-                        className="w-full md:w-[calc(45%)] lg:w-[calc(30%)] min-w-[300px] flex flex-col h-full card group transition-all duration-500"
+                        className="w-full md:w-[calc(45%)] lg:w-[calc(30%)] min-w-[300px] flex flex-col card group transition-all duration-500"
                         style={{ borderRadius: 'var(--radius-custom)', boxShadow: 'var(--shadow-main)' }}
                       >
-                        <div className="relative aspect-square overflow-hidden mb-8 shadow-inner" style={{ borderRadius: 'calc(var(--radius-custom) * 0.8)' }}>
+                        <div className="relative aspect-square overflow-hidden mb-8 shadow-inner flex-shrink-0" style={{ borderRadius: 'calc(var(--radius-custom) * 0.8)' }}>
                           <EditableMedia 
                             src={item.product_foto_url} 
                             cmsBind={{file: 'producten', index, key: 'product_foto_url'}}
@@ -85,17 +85,17 @@ const Section = ({ data }) => {
                             €{priceValue.toFixed(2)}
                           </div>
                         </div>
-                        <div className="flex-grow text-left">
-                          <h3 className="text-2xl font-bold mb-3 text-[var(--color-heading)]">
+                        <div className="flex-grow text-left flex flex-col">
+                          <h3 className="text-2xl font-bold mb-3 text-[var(--color-heading)] min-h-[4rem] flex items-center">
                             <EditableText value={item.naam} cmsBind={{file: 'producten', index, key: 'naam'}} />
                           </h3>
-                          <p className="text-sm opacity-60 line-clamp-3 mb-6 leading-relaxed">
+                          <p className="text-sm opacity-60 line-clamp-3 mb-6 leading-relaxed flex-grow">
                             <EditableText value={item.korte_beschrijving} cmsBind={{file: 'producten', index, key: 'korte_beschrijving'}} />
                           </p>
                         </div>
                         <button 
                           onClick={() => addToCart({ id: item.product_id || index, title: item.naam, price: priceValue, image: item.product_foto_url })}
-                          className="btn-primary w-full py-5 flex items-center justify-center gap-3"
+                          className="btn-primary w-full py-5 flex items-center justify-center gap-3 mt-auto"
                         >
                           <i className="fa-solid fa-cart-shopping"></i> In winkelwagen
                         </button>
