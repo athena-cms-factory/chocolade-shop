@@ -187,13 +187,45 @@
     document.addEventListener('click', (e) => {
         const target = e.target.closest('[data-dock-bind]');
         if (target && window.parent !== window) {
+            if (e.shiftKey) return;
+
             e.preventDefault();
             e.stopPropagation();
+
+            const binding = JSON.parse(target.getAttribute('data-dock-bind'));
+            const dockType = target.getAttribute('data-dock-type') || (
+                (binding.key && (binding.key.toLowerCase().includes('foto') || 
+                                 binding.key.toLowerCase().includes('image') || 
+                                 binding.key.toLowerCase().includes('img') || 
+                                 binding.key.toLowerCase().includes('afbeelding') || 
+                                 binding.key.toLowerCase().includes('video'))) ? 'media' : 'text'
+            );
+
+            let currentValue = target.getAttribute('data-dock-current') || target.innerText;
+            
+            if (dockType === 'link') {
+                currentValue = {
+                    label: target.getAttribute('data-dock-label') || target.innerText,
+                    url: target.getAttribute('data-dock-url') || ""
+                };
+            } else if (!currentValue || dockType === 'media') {
+                const img = target.tagName === 'IMG' ? target : target.querySelector('img');
+                if (img) {
+                    const src = img.getAttribute('src');
+                    if (src && src.includes('/images/')) {
+                        currentValue = src.split('/images/').pop().split('?')[0];
+                    } else {
+                        currentValue = src;
+                    }
+                }
+            }
+
             window.parent.postMessage({
                 type: 'SITE_CLICK',
-                binding: JSON.parse(target.getAttribute('data-dock-bind')),
-                currentValue: target.innerText || target.src,
-                tagName: target.tagName
+                binding: binding,
+                currentValue: currentValue || "",
+                tagName: target.tagName,
+                dockType: dockType
             }, '*');
         }
     }, true);
