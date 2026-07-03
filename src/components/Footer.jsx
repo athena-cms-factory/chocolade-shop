@@ -18,8 +18,7 @@ export default function Footer({ data, siteSettings }) {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C49A45]/5 rounded-full blur-[100px] -ml-32 -mb-32 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-6">
             <h3 className="text-3xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F4E3C5] to-[#C49A45] tracking-tight">{naam}</h3>
@@ -77,8 +76,7 @@ export default function Footer({ data, siteSettings }) {
             </div>
           </div>
 
-          {/* Legal and Socials */}
-          {/* Legal and Socials */}
+          {/* Legal */}
           <div className="pt-2 md:pt-0">
             <h4 className="text-[#C49A45] font-serif font-bold mb-6 uppercase tracking-[0.15em] text-sm">Juridisch</h4>
             <ul className="space-y-3 text-sm font-light mb-8">
@@ -86,7 +84,10 @@ export default function Footer({ data, siteSettings }) {
               <li><Link to="/voorwaarden" className="opacity-80 hover:opacity-100 hover:text-white transition-all flex items-center gap-2"><span className="w-1 h-1 bg-[#C49A45] rounded-full"></span>Algemene Voorwaarden</Link></li>
               <li><Link to="/cookies" className="opacity-80 hover:opacity-100 hover:text-white transition-all flex items-center gap-2"><span className="w-1 h-1 bg-[#C49A45] rounded-full"></span>Cookiebeleid</Link></li>
             </ul>
+          </div>
 
+          {/* Socials */}
+          <div className="pt-2 md:pt-0">
             {facebook && (
               <>
                 <h4 className="text-[#C49A45] font-serif font-bold mb-6 uppercase tracking-[0.15em] text-sm">Volg ons</h4>
@@ -98,17 +99,16 @@ export default function Footer({ data, siteSettings }) {
               </>
             )}
           </div>
+        </div>
 
-          {/* Copyright */}
-          {/* Copyright */}
-          <div className="flex flex-col md:items-end justify-end border-t border-[#4A3222]/50 md:border-none pt-8 md:pt-0 mt-4 md:mt-0">
-             <div className="flex items-center gap-2 text-[#C49A45] mb-2">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <span className="font-serif italic text-sm">Crafted with passion</span>
-             </div>
-             <p className="text-sm font-light opacity-60 hover:opacity-100 transition-opacity">
-                <span data-dock-type="text" data-dock-bind="footer.0.copy_tekst">{footerContent.copy_tekst || `© ${new Date().getFullYear()} ${naam}. Alle rechten voorbehouden.`}</span>
-             </p>
+        {/* Copyright Full Width */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between border-t border-[#4A3222]/50 pt-8 mt-4 md:mt-0">
+          <p className="text-sm font-light opacity-60 hover:opacity-100 transition-opacity mb-4 md:mb-0">
+            <span data-dock-type="text" data-dock-bind="footer.0.copy_tekst">{footerContent.copy_tekst || `© ${new Date().getFullYear()} ${naam}. Alle rechten voorbehouden.`}</span>
+          </p>
+          <div className="flex items-center gap-2 text-[#C49A45]">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span className="font-serif italic text-sm">Crafted with passion</span>
           </div>
         </div>
       </div>
